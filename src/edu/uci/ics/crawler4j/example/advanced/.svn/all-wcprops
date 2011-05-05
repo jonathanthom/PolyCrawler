@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/19/trunk/crawler4j/src/edu/uci/ics/crawler4j/example/advanced
+END
+Controller.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/19/trunk/crawler4j/src/edu/uci/ics/crawler4j/example/advanced/Controller.java
+END
+CrawlStat.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/12/trunk/crawler4j/src/edu/uci/ics/crawler4j/example/advanced/CrawlStat.java
+END
+MyCrawler.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/19/trunk/crawler4j/src/edu/uci/ics/crawler4j/example/advanced/MyCrawler.java
+END
+Downloader.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/17/trunk/crawler4j/src/edu/uci/ics/crawler4j/example/advanced/Downloader.java
+END
