@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/20/trunk/crawler4j/src/edu/uci/ics/crawler4j/frontier
+END
+WebURLTupleBinding.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/12/trunk/crawler4j/src/edu/uci/ics/crawler4j/frontier/WebURLTupleBinding.java
+END
+Frontier.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/19/trunk/crawler4j/src/edu/uci/ics/crawler4j/frontier/Frontier.java
+END
+DocIDServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/19/trunk/crawler4j/src/edu/uci/ics/crawler4j/frontier/DocIDServer.java
+END
+WorkQueues.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/19/trunk/crawler4j/src/edu/uci/ics/crawler4j/frontier/WorkQueues.java
+END
+InProcessPagesDB.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/19/trunk/crawler4j/src/edu/uci/ics/crawler4j/frontier/InProcessPagesDB.java
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/18/trunk/crawler4j/src/edu/uci/ics/crawler4j/robotstxt
+END
+HostDirectives.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/17/trunk/crawler4j/src/edu/uci/ics/crawler4j/robotstxt/HostDirectives.java
+END
+RobotstxtServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/17/trunk/crawler4j/src/edu/uci/ics/crawler4j/robotstxt/RobotstxtServer.java
+END
+RuleSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/17/trunk/crawler4j/src/edu/uci/ics/crawler4j/robotstxt/RuleSet.java
+END
+RobotstxtParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/18/trunk/crawler4j/src/edu/uci/ics/crawler4j/robotstxt/RobotstxtParser.java
+END
