@@ -48,6 +48,8 @@ public final class IO {
 		}
 		return true;
 	}
+
+	// Perhaps this is the spot to send items to the database...
 	
 	public static void writeBytesToFile(byte[] bytes, String destination) {
 		try {
