@@ -18,7 +18,6 @@
 package edu.uci.ics.crawler4j.example.simple;
 
 import edu.uci.ics.crawler4j.crawler.CrawlController;
-import edu.uci.ics.crawler4j.crawler.OAIHarvester;
 
 /**
  * @author Yasser Ganjisaffar <yganjisa at uci dot edu>
@@ -64,12 +63,20 @@ public class Controller {
 
 		// Get from data base all 'seed' instructor names and concatonate
 		// them to the user
-		//controller.addSeed("http://users.csc.calpoly.edu/~clements/");
+		controller.addSeed("http://users.csc.calpoly.edu/~bellardo/");
+		controller.addSeed("http://users.csc.calpoly.edu/~ivakalis/");
+		controller.addSeed("http://users.csc.calpoly.edu/~buckalew/");
+		controller.addSeed("http://users.csc.calpoly.edu/~akeen/");
+		controller.addSeed("http://users.csc.calpoly.edu/~clupo/");
+		controller.addSeed("http://users.csc.calpoly.edu/~csturner/");
+		controller.addSeed("http://users.csc.calpoly.edu/~jdalbey/");
+		controller.addSeed("http://users.csc.calpoly.edu/~jworkman/");
+		controller.addSeed("http://users.csc.calpoly.edu/~zwood/");
 		controller.addSeed("http://users.csc.calpoly.edu/~gfisher/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~fkurfess/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~cclarke/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~djanzen/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~pnico/");
+		controller.addSeed("http://users.csc.calpoly.edu/~fkurfess/");
+		controller.addSeed("http://users.csc.calpoly.edu/~cmclark/");
+		controller.addSeed("http://users.csc.calpoly.edu/~djanzen/");
+		controller.addSeed("http://users.csc.calpoly.edu/~pnico/");
 
 		/*
 		 * Be polite: Make sure that we don't send more than 5 requests per
@@ -87,7 +94,7 @@ public class Controller {
 		 * Optional: You can set the maximum number of pages to crawl. The
 		 * default value is -1 for unlimited depth
 		 */
-		controller.setMaximumPagesToFetch(25000);
+		controller.setMaximumPagesToFetch(5);
 
 		/*
 		 * Do you need to set a proxy? If so, you can use:
@@ -114,7 +121,18 @@ public class Controller {
 		 * Start the crawl. This is a blocking operation, meaning that your code
 		 * will reach the line after this only when crawling is finished.
 		 */
-		controller.start(MyCrawler.class, numberOfCrawlers);
+		controller.start(MyWebCrawler.class, numberOfCrawlers);
+		
+		/*
+		 * Begin crawler for names and ratings url
+		 */
+		CrawlController rateController = new CrawlController(rootFolder+"\rate");
+		rateController.addSeed("http://polyratings.com/list.phtml");
+		rateController.setPolitenessDelay(100);
+		rateController.setMaximumCrawlDepth(0);
+		rateController.setMaximumPagesToFetch(1);
+		rateController.start(MyRatingsCrawler.class, 1);
+
 	}
 
 }
