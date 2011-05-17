@@ -8,6 +8,8 @@ import java.util.HashMap;
 
 import com.sun.tools.javac.util.Pair;
 
+import edu.uci.ics.crawler4j.crawler.Database;
+
 public class MyContainers {
 
 	private static MyContainers instance = null;
@@ -17,10 +19,12 @@ public class MyContainers {
 	
 	// Contains Last Name, First Name as a Pair key and the string url for their ratings
 	public static Map<Pair<String,String>, String> nameratemap = Collections.synchronizedMap(new HashMap<Pair<String,String>,String>());
-
+	public static Database database = null;
+	
 	public static MyContainers getInstance() {
 		if (instance == null) {
 			instance = new MyContainers();
+			database = new Database("root", "fakepassword");
 		}
 		return instance;
 	}
