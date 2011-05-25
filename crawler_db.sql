@@ -4,16 +4,19 @@ use CRAWLER;
 create table if not exists DEPARTMENT
 (
     ID int auto_increment not null primary key,
-	NAME varchar(50) not null
+	NAME varchar(50) not null,
+	ABBREV varchar(10) not null,
+	URL varchar(255) not null
 ) type=InnoDB;
 
 create table if not exists INSTRUCTOR
 (
     ID int auto_increment not null primary key,
-	SEED varchar(255) not null,
+	TEACHERURL varchar(255) not null,
 	SOCIAL int,
-	POLYRATING varchar(255) not null,
-	NAME varchar(50) not null,
+	POLYRATING varchar(255),
+	FIRSTNAME varchar(50) not null,
+	LASTNAME varchar(50) not null,
 	USERNAME varchar(50),
 	DEPARTMENT int not null,
 	foreign key (DEPARTMENT) references DEPARTMENT(ID) on delete cascade
