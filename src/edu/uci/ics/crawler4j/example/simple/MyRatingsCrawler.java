@@ -42,11 +42,6 @@ public class MyRatingsCrawler extends WebCrawler {
 
 	private MyContainers containers = MyContainers.getInstance();
 	private final int NUMTOKES = 4;
-	
-	
-	Pattern filters = Pattern.compile(".*(\\.(css|js|bmp|gif|jpe?g"
-			+ "|png|tiff?|mid|mp2|mp3|mp4" + "|wav|avi|mov|mpeg|ram|m4v|pdf"
-			+ "|rm|smil|wmv|swf|wma|zip|rar|gz))$");
 
 	public MyRatingsCrawler() {
 	}

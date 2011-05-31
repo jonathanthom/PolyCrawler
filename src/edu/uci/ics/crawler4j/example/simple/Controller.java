@@ -16,8 +16,9 @@
  */
 
 package edu.uci.ics.crawler4j.example.simple;
-
+import com.sun.tools.javac.util.Pair;
 import edu.uci.ics.crawler4j.crawler.CrawlController;
+import edu.uci.ics.crawler4j.crawler.Database;
 
 /**
  * @author Yasser Ganjisaffar <yganjisa at uci dot edu>
@@ -26,11 +27,19 @@ import edu.uci.ics.crawler4j.crawler.CrawlController;
 public class Controller {
 
 	public static void main(String[] args) throws Exception {
-		if (args.length < 2) {
+		if (args.length < 4) {
 			System.out
-					.println("Please specify 'root folder' and 'number of crawlers'.");
+					.println("Please specify 'root folder' and 'number of crawlers' and 'db login' and 'db password'.");
 			return;
 		}
+		
+		/*
+		 * MySQL database login and password
+		 */
+		String dblogin = args[2];
+		String dbpassword = args[3];
+		//Begin Database here!!!
+		//Database db = new Database(dblogin, dbpassword);
 
 		/*
 		 * rootfolder is a folder where intermediate crawl data is stored.
@@ -63,20 +72,21 @@ public class Controller {
 
 		// Get from data base all 'seed' instructor names and concatonate
 		// them to the user
-		//controller.addSeed("http://users.csc.calpoly.edu/~bellardo/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~ivakalis/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~buckalew/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~akeen/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~clupo/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~csturner/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~jdalbey/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~jworkman/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~zwood/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~gfisher/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~fkurfess/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~cmclark/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~djanzen/");
-		//controller.addSeed("http://users.csc.calpoly.edu/~pnico/");
+		controller.addSeed("http://polyratings.com/list.phtml");
+		controller.addSeed("http://users.csc.calpoly.edu/~bellardo/");
+		controller.addSeed("http://users.csc.calpoly.edu/~ivakalis/");
+		controller.addSeed("http://users.csc.calpoly.edu/~buckalew/");
+		controller.addSeed("http://users.csc.calpoly.edu/~akeen/");
+		controller.addSeed("http://users.csc.calpoly.edu/~clupo/");
+		controller.addSeed("http://users.csc.calpoly.edu/~csturner/");
+		controller.addSeed("http://users.csc.calpoly.edu/~jdalbey/");
+		controller.addSeed("http://users.csc.calpoly.edu/~jworkman/");
+		controller.addSeed("http://users.csc.calpoly.edu/~zwood/");
+		controller.addSeed("http://users.csc.calpoly.edu/~gfisher/");
+		controller.addSeed("http://users.csc.calpoly.edu/~fkurfess/");
+		controller.addSeed("http://users.csc.calpoly.edu/~cmclark/");
+		controller.addSeed("http://users.csc.calpoly.edu/~djanzen/");
+		controller.addSeed("http://users.csc.calpoly.edu/~pnico/");
 
 		/*
 		 * Be polite: Make sure that we don't send more than 5 requests per
@@ -88,13 +98,13 @@ public class Controller {
 		 * Optional: You can set the maximum crawl depth here. The default value
 		 * is -1 for unlimited depth
 		 */
-		controller.setMaximumCrawlDepth(3);
+		controller.setMaximumCrawlDepth(5);
 
 		/*
 		 * Optional: You can set the maximum number of pages to crawl. The
 		 * default value is -1 for unlimited depth
 		 */
-		controller.setMaximumPagesToFetch(5);
+		controller.setMaximumPagesToFetch(1000);
 
 		/*
 		 * Do you need to set a proxy? If so, you can use:
@@ -109,35 +119,52 @@ public class Controller {
 		 */
 
 		/*
-		 * Connect to the mysql database
-		 */
-		// Connect to mysql here
-
-		/*
-		 * Scrape polyratings
-		 */
-
-		/*
 		 * Start the crawl. This is a blocking operation, meaning that your code
 		 * will reach the line after this only when crawling is finished.
 		 */
-		//controller.start(MyWebCrawler.class, numberOfCrawlers);
+		controller.start(MyWebCrawler.class, numberOfCrawlers);
+
+		MyOAIHarvester oaiHarv = new MyOAIHarvester();
+		oaiHarv.init("http://digitalcommons.calpoly.edu/cgi/oai2.cgi");
+		oaiHarv.runListRecords("2010-08-11", "2011-05-31", "publication:csse_5Ffac");
+
 		
-		/*
-		 * Begin crawler for names and ratings url
-		 */
-		//CrawlController rateController = new CrawlController(rootFolder+"\rate");
-		//rateController.
-		controller.addSeed("http://polyratings.com/list.phtml");
-		//rateController.
-		controller.setPolitenessDelay(100);
-		//rateController.
-		controller.setMaximumCrawlDepth(0);
-		//rateController.
-		controller.setMaximumPagesToFetch(1);
-		//rateController.
-		controller.start(MyRatingsCrawler.class, 1);
-
+		// Here instead of dump push into database
+		// dump Instructor Container
+		System.out.println("Id and Courses container");
+		for(String s : MyContainers.idcoursemap.keySet())
+		{
+			System.out.println("Instructor ID:"+s);
+			System.out.println(MyContainers.idcoursemap.get(s).toString());
+		}
+		// dump Ratings Container
+		System.out.println("Ratings link and name container");
+		for(Pair<String,String> p : MyContainers.nameratemap.keySet())
+		{
+			System.out.printf("Name:%s, %s RatingUrl:%s\n", p.fst, p.snd, MyContainers.nameratemap.get(p));
+		}
+		
+		// dump Dept Container
+		System.out.println("Name and dept container");
+		for(Pair<String,String> p : MyContainers.namedepmap.keySet())
+		{
+			System.out.printf("Name:%s, %s Dept:%s\n", p.fst, p.snd, MyContainers.namedepmap.get(p));
+		}
+		
+		// dump OAI Container
+		System.out.println("Publications map");
+		for(Pair<String,String> p : MyContainers.oaimap.keySet())
+		{
+			for(String s : MyContainers.oaimap.get(p).keySet())
+			{
+				OAITuple tmpTuple = MyContainers.oaimap.get(p).get(s);
+				System.err.printf("Name: %s, %s\n", p.fst, p.snd);
+				//System.out.printf(tmpTuple.toString());
+				System.err.printf("Title:%s\n", tmpTuple.getTitle());
+				System.err.printf("Abstract:%s\n", tmpTuple.getDesc());
+				System.err.printf("URI:%s\n", tmpTuple.getURI());
+				
+			}
+		}
 	}
-
 }

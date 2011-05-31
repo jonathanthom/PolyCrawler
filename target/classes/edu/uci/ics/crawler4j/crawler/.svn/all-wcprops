@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/20/trunk/crawler4j/src/edu/uci/ics/crawler4j/crawler
+END
+HTMLParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/13/trunk/crawler4j/src/edu/uci/ics/crawler4j/crawler/HTMLParser.java
+END
+LinkExtractor.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/crawler4j/src/edu/uci/ics/crawler4j/crawler/LinkExtractor.java
+END
+Configurations.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/17/trunk/crawler4j/src/edu/uci/ics/crawler4j/crawler/Configurations.java
+END
+PageFetchStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/13/trunk/crawler4j/src/edu/uci/ics/crawler4j/crawler/PageFetchStatus.java
+END
+CrawlController.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/19/trunk/crawler4j/src/edu/uci/ics/crawler4j/crawler/CrawlController.java
+END
+Page.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/19/trunk/crawler4j/src/edu/uci/ics/crawler4j/crawler/Page.java
+END
+WebCrawler.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/20/trunk/crawler4j/src/edu/uci/ics/crawler4j/crawler/WebCrawler.java
+END
+PageFetcher.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/20/trunk/crawler4j/src/edu/uci/ics/crawler4j/crawler/PageFetcher.java
+END
+IdleConnectionMonitorThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/12/trunk/crawler4j/src/edu/uci/ics/crawler4j/crawler/IdleConnectionMonitorThread.java
+END
