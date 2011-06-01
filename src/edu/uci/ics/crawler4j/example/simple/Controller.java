@@ -39,7 +39,7 @@ public class Controller {
 		String dblogin = args[2];
 		String dbpassword = args[3];
 		//Begin Database here!!!
-		//Database db = new Database(dblogin, dbpassword);
+		Database db = new Database(dblogin, dbpassword);
 
 		/*
 		 * rootfolder is a folder where intermediate crawl data is stored.
@@ -73,7 +73,7 @@ public class Controller {
 		// Get from data base all 'seed' instructor names and concatonate
 		// them to the user
 		controller.addSeed("http://polyratings.com/list.phtml");
-		controller.addSeed("http://users.csc.calpoly.edu/~bellardo/");
+/*		controller.addSeed("http://users.csc.calpoly.edu/~bellardo/");
 		controller.addSeed("http://users.csc.calpoly.edu/~ivakalis/");
 		controller.addSeed("http://users.csc.calpoly.edu/~buckalew/");
 		controller.addSeed("http://users.csc.calpoly.edu/~akeen/");
@@ -82,11 +82,11 @@ public class Controller {
 		controller.addSeed("http://users.csc.calpoly.edu/~jdalbey/");
 		controller.addSeed("http://users.csc.calpoly.edu/~jworkman/");
 		controller.addSeed("http://users.csc.calpoly.edu/~zwood/");
-		controller.addSeed("http://users.csc.calpoly.edu/~gfisher/");
+		controller.addSeed("http://users.csc.calpoly.edu/~gfisher/");*/
 		controller.addSeed("http://users.csc.calpoly.edu/~fkurfess/");
 		controller.addSeed("http://users.csc.calpoly.edu/~cmclark/");
-		controller.addSeed("http://users.csc.calpoly.edu/~djanzen/");
-		controller.addSeed("http://users.csc.calpoly.edu/~pnico/");
+		//controller.addSeed("http://users.csc.calpoly.edu/~djanzen/");
+		//controller.addSeed("http://users.csc.calpoly.edu/~pnico/");
 
 		/*
 		 * Be polite: Make sure that we don't send more than 5 requests per
@@ -104,7 +104,7 @@ public class Controller {
 		 * Optional: You can set the maximum number of pages to crawl. The
 		 * default value is -1 for unlimited depth
 		 */
-		controller.setMaximumPagesToFetch(1000);
+		controller.setMaximumPagesToFetch(50);
 
 		/*
 		 * Do you need to set a proxy? If so, you can use:
@@ -134,6 +134,7 @@ public class Controller {
 		System.out.println("Id and Courses container");
 		for(String s : MyContainers.idcoursemap.keySet())
 		{
+//			db.addInstructor("testing", 1, "testing", "testing", "testing", 1);
 			System.out.println("Instructor ID:"+s);
 			System.out.println(MyContainers.idcoursemap.get(s).toString());
 		}

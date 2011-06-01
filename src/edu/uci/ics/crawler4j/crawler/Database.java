@@ -92,15 +92,16 @@ public class Database {
 	 */
 	public void addInstructor(String SEED, int SOCIAL, String POLYRATING, String NAME, String USERNAME, int DEPARTMENT) {
 		PreparedStatement pstmt = null;
-		
 		try {
 			pstmt = conn.prepareStatement ("Insert into INSTRUCTOR (SEED, SOCIAL, POLYRATING, NAME, USERNAME, DEPARTMENT) values (?, ?, ?, ?, ?, ?)");
-			pstmt.setString(1, SEED);
-			pstmt.setLong(2, SOCIAL);
+			pstmt.setString(2,"A");
+			pstmt.setString(3,"B");
+			pstmt.setInt(4,1);
 			pstmt.setString(3, POLYRATING);
 			pstmt.setString(4, NAME);
-			pstmt.setString(5, USERNAME);
-			pstmt.setLong(6, DEPARTMENT);
+			pstmt.setString(5, NAME);
+			pstmt.setString(6, USERNAME);
+			pstmt.setLong(7, DEPARTMENT);
 			
 			if(pstmt.executeUpdate() != 1) {
 				throw new Exception();	
