@@ -130,6 +130,18 @@ public class Controller {
 
 		
 		// Here instead of dump push into database
+		
+		//Add departments
+		db.addDepartment(1, "Computer Science", "CSC", "-");
+		db.addDepartment(2, "Computer Engineering", "CPE", "-");
+		
+		//Add dummy instructor
+		db.addInstructor(1, "-", 1, "-", "Tom", "Riddle", "voldemort", 1);
+
+		//Print stuff out
+		db.printDepartments();
+		db.printInstructors();
+		
 		// dump Instructor Container
 		System.out.println("Id and Courses container");
 		for(String s : MyContainers.idcoursemap.keySet())
